@@ -5,16 +5,16 @@ module.exports = {
     extend: {
       // Thème NEUTRE de départ.
       // TODO (Partie 1) : remplacez ces valeurs par les couleurs et les polices de votre univers.
-     colors: {
+    colors: {
   brand: {
-    DEFAULT: "#DC2626",
-    dark: "#991B1B",
-    light: "#FEE2E2",
+    DEFAULT: "#B91C1C",
+    dark: "#7F1D1D",
+    light: "#F5E6C8",
   },
-  ink: "#172033",
-  muted: "#64748B",
-  ground: "#FFF7ED",
-  line: "#CBD5E1",
+  ink: "#142638",
+  muted: "#586779",
+  ground: "#FAF3E5",
+  line: "#D6C5A3",
 },
       fontFamily: {
         display: ["Arial", "sans-serif"],

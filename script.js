@@ -52,17 +52,66 @@ function afficherCreatures(liste) {
 }
 
 afficherCreatures(creatures);
-const recherche = document.getElementById("search");
 
-recherche.addEventListener("input", () => {
+
+// -------------------------------------------------------------
+// 4. FILTRE
+// Les boutons de type n'affichent que les créatures de ce type ;
+// « Tous » réinitialise le filtre.
+// La recherche et le filtre fonctionnent ENSEMBLE.
+// -------------------------------------------------------------
+
+const recherche = document.getElementById("search");
+const filtres = document.getElementById("filters");
+
+let typeActif = "Tous";
+
+const types = [
+  "Tous",
+  ...new Set(creatures.map(personnage => personnage.type))
+];
+
+function afficherFiltres() {
+  filtres.innerHTML = types.map(type => `
+    <button
+      type="button"
+      class="chip"
+      data-type="${type}"
+      aria-pressed="${type === typeActif}"
+    >
+      ${type}
+    </button>
+  `).join("");
+}
+
+function appliquerFiltres() {
   const texte = recherche.value.trim().toLowerCase();
 
   const resultats = creatures.filter(personnage => {
-    return personnage.name.toLowerCase().includes(texte);
+    const correspondNom =
+      personnage.name.toLowerCase().includes(texte);
+
+    const correspondType =
+      typeActif === "Tous" || personnage.type === typeActif;
+
+    return correspondNom && correspondType;
   });
 
   afficherCreatures(resultats);
+}
+
+recherche.addEventListener("input", appliquerFiltres);
+
+filtres.addEventListener("click", event => {
+  const bouton = event.target.closest("button[data-type]");
+  if (!bouton) return;
+
+  typeActif = bouton.dataset.type;
+  afficherFiltres();
+  appliquerFiltres();
 });
+
+afficherFiltres();
 
 
 
@@ -179,12 +228,6 @@ detail.addEventListener("click", (event) => {
 // -------------------------------------------------------------
 
 
-// -------------------------------------------------------------
-// 4. FILTRE
-// Les boutons de type n'affichent que les créatures de ce type ;
-// « Tous » réinitialise le filtre.
-// La recherche et le filtre fonctionnent ENSEMBLE.
-// -------------------------------------------------------------
 
 
 // -------------------------------------------------------------

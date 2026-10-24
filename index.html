@@ -17,22 +17,21 @@
     <div class="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-8 py-5">
       <div class="flex items-center gap-3">
         <div class="flex flex-wrap gap-2">
-          <svg aria-hidden="true" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"
-            stroke-linecap="round">
-            <circle cx="12" cy="12" r="9"></circle>
-            <path d="M3 12h18"></path>
-            <circle cx="12" cy="12" r="3"></circle>
-          </svg>
+         <span
+  role="img"
+  aria-label="Drapeau pirate"
+  class="flex h-12 w-12 items-center justify-center rounded-full border-2 border-amber-400 bg-white/10 text-3xl"
+>🏴‍☠️</span>
         </div>
         <div>
-          <p class="font-display text-2xl font-extrabold leading-none">Mon Dex</p>
-          <p class="text-sm text-gray-300">One Piece· <span id="creature-count">12</span> personnages</p>
+          <p class="font-display text-2xl font-extrabold leading-none">Grand Line Dex</p>
+          <p class="text-sm text-gray-300">One Piece· <span id="creature-count">16</span> personnages</p>
         </div>
       </div>
       <nav aria-label="Navigation principale" class="flex flex-wrap gap-2">
-        <a href="#grid" class="rounded-full bg-white/10 px-4 py-2">Créatures</a>
+        <a href="#grid" class="rounded-full bg-white/10 px-4 py-2">Personnages</a>
         <a href="#team" class="rounded-full bg-white/10 px-4 py-2">Mon équipe · <span id="team-count">0</span>/6</a>
-        <a href="#create" class="rounded-full bg-white px-4 py-2 font-bold text-ink">+ Nouvelle créature</a>
+        <a href="#create" class="rounded-full bg-white px-4 py-2 font-bold text-ink">+ Nouvelle Personnage</a>
       </nav>
     </div>
   </header>
@@ -42,22 +41,18 @@
     <!-- ===================== RECHERCHE ET FILTRES ===================== -->
     <section aria-label="Recherche et filtres" class="flex flex-col gap-4">
       <div class="flex flex-wrap items-end justify-between gap-4">
-        <h1 class="font-display text-4xl font-extrabold">Trouver une créature</h1>
+        <h1 class="font-display text-4xl font-extrabold">Explore Grand Line</h1>
         <label class="flex w-full max-w-md flex-col gap-1 text-sm font-bold">
           Rechercher par nom
-          <input id="search" type="search" placeholder="ex. Mossling" class="field font-normal">
+          <input id="search" type="search" placeholder="ex. Luffy, Zoro, Shanks" class="field font-normal">
         </label>
       </div>
-      <div id="filters" role="group" aria-label="Filtrer par type"
-        class="flex h-11 flex-nowrap gap-2 lg:overflow-hidden overflow-x-auto">
-        <button type="button" class="chip bg-ink text-white border-ink shrink-0">Tous</button>
-        <button type="button" class="chip shrink-0">Feu</button>
-        <button type="button" class="chip shrink-0">Eau</button>
-        <button type="button" class="chip shrink-0">Plante</button>
-        <button type="button" class="chip shrink-0">Électrik</button>
-        <button type="button" class="chip shrink-0">Glace</button>
-        <button type="button" class="chip shrink-0">Ténèbres</button>
-      </div>
+      <div
+  id="filters"
+  role="group"
+  aria-label="Filtrer les personnages"
+  class="flex flex-wrap gap-2"
+></div>
     </section>
 
     <div class="flex flex-col lg:flex-row gap-8  items-start">

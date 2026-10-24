@@ -60,3 +60,16 @@
 #detail[hidden] {
   display: none;
 }
+
+
+
+.chip[aria-pressed="true"] {
+  background-color: #142638;
+  border-color: #142638;
+  color: #fff;
+}
+
+.chip:focus-visible {
+  outline: 3px solid #B45309;
+  outline-offset: 3px;
+}
