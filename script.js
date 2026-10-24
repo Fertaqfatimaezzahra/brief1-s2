@@ -10,6 +10,62 @@
 // 1. AFFICHAGE
 // Supprimez les cartes écrites à la main dans index.html et
 // construisez la grille à partir du tableau `creatures`.
+
+import { creatures } from './data.js'
+console.log(creatures)
+let a = document.getElementById("grid")
+console.log(a)
+function afficherCreatures(liste) {
+  a.innerHTML = "";
+
+  liste.forEach(cart => {
+    a.insertAdjacentHTML('beforeend', `<article
+    class=" dex-card flex flex-col gap-3 rounded-card bg-white p-3 pb-4 hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
+    <div class=" character-zone relative flex h-36 items-center justify-center rounded-xl bg-brand-light">
+      <img
+  src="${cart.image}"
+  alt="${cart.name}"
+  class="character-img">
+    </div>
+    <div class="flex items-center justify-between gap-2">
+        <h3 class="font-display text-xl font-semibold">${cart.name}</h3>
+        <span class="rounded-full bg-brand-light px-3 py-1 text-sm font-bold text-ink">${cart.type}</span>
+    </div>
+    <p class="text-sm text-muted">${cart.level} · Total ${cart.stats.power + cart.stats.defence + cart.stats.speed}</p>
+    <button
+        type="button"
+        class="btn-outline
+        mt-auto
+  focus-visible:outline-none
+         focus-visible:ring-2
+         focus-visible:ring-brand
+         focus-visible:ring-offset-2
+         disabled:opacity-50
+         disabled:cursor-not-allowed">
+
+        Ajouter à l'équipe
+
+    </button>
+</article>`)
+
+});
+}
+
+afficherCreatures(creatures);
+const recherche = document.getElementById("search");
+
+recherche.addEventListener("input", () => {
+  const texte = recherche.value.trim().toLowerCase();
+
+  const resultats = creatures.filter(personnage => {
+    return personnage.name.toLowerCase().includes(texte);
+  });
+
+  afficherCreatures(resultats);
+});
+
+
+
 // -------------------------------------------------------------
 
 
@@ -59,4 +115,8 @@
 
 // -------------------------------------------------------------
 // BONUS : LocalStorage, Fetch API, tri, comparaison
-// -------------------------------------------------------------
+// -----------------------------------------------------------  
+
+
+
+

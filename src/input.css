@@ -23,3 +23,33 @@
     @apply h-12 rounded-xl border-2 border-line bg-white px-3 text-base outline-none;
   }
 }
+.dex-card {
+  position: relative;
+  overflow: visible;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dex-card:hover {
+  z-index: 10;
+  transform: translateY(-8px);
+  box-shadow: 0 18px 35px rgb(0 0 0 / 18%);
+}
+
+.character-zone {
+  overflow: visible;
+}
+
+.character-img {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transform-origin: bottom center;
+  transition: transform 0.3s ease;
+  pointer-events: none;
+}
+
+.dex-card:hover .character-img {
+  transform: translateY(-4px) scale(1.05);
+}

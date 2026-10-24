@@ -17,114 +17,150 @@
 // Pensez à citer la source de vos images dans le README.
 
 
-const creatures = [
+
+export const creatures = [
   {
     id: "#001",
-    name: "Bulbizarre",
-    type: "Plante",
-    level: "Base",
-    stats: { hp: 45, attack: 49, defence: 49 },
-    image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
-    description: "Un Pokémon de type Plante avec une graine sur le dos."
+    name: "Monkey D. Luffy",
+    type: "Paramecia",
+    level: "Capitaine",
+    stats: { hp: 100, attack: 95, defence: 90 },
+    image: "https://raw.githubusercontent.com/optc-db/optc-db.github.io/master/api/images/full/transparent/0/000/0004.png",
+    description: "Capitaine de l'équipage du Chapeau de Paille, il rêve de devenir le Roi des Pirates."
   },
   {
     id: "#002",
-    name: "Herbizarre",
-    type: "Plante",
-    level: "Évolution 1",
-    stats: { hp: 60, attack: 62, defence: 63 },
-    image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png",
-    description: "Une évolution de Bulbizarre, plus grande et plus puissante."
+    name: "Roronoa Zoro",
+    type: "Sabreur",
+    level: "Combattant",
+    stats: { hp: 90, attack: 98, defence: 85 },
+    image: "https://raw.githubusercontent.com/optc-db/optc-db.github.io/master/api/images/full/transparent/0/000/0008.png",
+    description: "Le maître du style à trois sabres qui vise à devenir le plus grand épéiste du monde."
   },
   {
     id: "#003",
-    name: "Florizarre",
-    type: "Plante",
-    level: "Évolution 2",
-    stats: { hp: 80, attack: 82, defence: 83 },
-    image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png",
-    description: "Un Pokémon puissant avec une grande fleur sur le dos."
+    name: "Vinsmoke Sanji",
+    type: "Combattant",
+    level: "Cuisinier",
+    stats: { hp: 88, attack: 90, defence: 88 },
+    image: "https://raw.githubusercontent.com/optc-db/optc-db.github.io/master/api/images/full/transparent/0/000/0020.png",
+    description: "Le cuisinier hors pair de l'équipage qui combat exclusivement avec ses jambes."
   },
   {
     id: "#004",
-    name: "Salamèche",
-    type: "Feu",
-    level: "Base",
-    stats: { hp: 39, attack: 52, defence: 43 },
-    image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png",
-    description: "Un petit Pokémon de type Feu avec une flamme sur la queue."
+    name: "Nami",
+    type: "Navigateur",
+    level: "Navigateur",
+    stats: { hp: 60, attack: 65, defence: 55 },
+    image: "https://raw.githubusercontent.com/optc-db/optc-db.github.io/master/api/images/full/transparent/0/000/0012.png",
+    description: "La navigatrice géniale capable de prédire les pires tempêtes sur Grand Line."
   },
   {
     id: "#005",
-    name: "Reptincel",
-    type: "Feu",
-    level: "Évolution 1",
-    stats: { hp: 58, attack: 64, defence: 58 },
-    image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/5.png",
-    description: "Une évolution de Salamèche avec des griffes puissantes."
+    name: "Usopp",
+    type: "Tireur",
+    level: "Sniper",
+    stats: { hp: 65, attack: 70, defence: 50 },
+    image: "https://raw.githubusercontent.com/optc-db/optc-db.github.io/master/api/images/full/transparent/0/000/0015.png",
+    description: "Le sniper courageux (à sa façon) et menteur professionnel de l'équipe."
   },
   {
     id: "#006",
-    name: "Dracaufeu",
-    type: "Feu",
-    level: "Évolution 2",
-    stats: { hp: 78, attack: 84, defence: 78 },
-    image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png",
-    description: "Un Pokémon volant capable de cracher des flammes."
+    name: "Tony-Tony Chopper",
+    type: "Zoan",
+    level: "Médecin",
+    stats: { hp: 70, attack: 60, defence: 75 },
+    image: "https://raw.githubusercontent.com/optc-db/optc-db.github.io/master/api/images/full/transparent/0/000/0021.png",
+    description: "Le médecin de bord renne qui a mangé le fruit de l'Humain et utilise des Rumble Balls."
   },
   {
     id: "#007",
-    name: "Carapuce",
-    type: "Eau",
-    level: "Base",
-    stats: { hp: 44, attack: 48, defence: 65 },
-    image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png",
-    description: "Une petite tortue Pokémon qui utilise des attaques Eau."
+    name: "Nico Robin",
+    type: "Paramecia",
+    level: "Archéologue",
+    stats: { hp: 75, attack: 72, defence: 68 },
+    image: "https://raw.githubusercontent.com/optc-db/optc-db.github.io/master/api/images/full/transparent/0/200/0210.png",
+    description: "L'archéologue qui cherche à découvrir la vraie histoire du Siècle Oublié."
   },
   {
     id: "#008",
-    name: "Carabaffe",
-    type: "Eau",
-    level: "Évolution 1",
-    stats: { hp: 59, attack: 63, defence: 80 },
-    image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/8.png",
-    description: "Une évolution de Carapuce avec une carapace résistante."
+    name: "Franky",
+    type: "Cyborg",
+    level: "Charpentier",
+    stats: { hp: 85, attack: 80, defence: 85 },
+    image: "https://raw.githubusercontent.com/optc-db/optc-db.github.io/master/api/images/full/transparent/0/300/0337.png",
+    description: "Le cyborg charpentier super-stylé qui a construit le Thousand Sunny."
   },
   {
     id: "#009",
-    name: "Tortank",
-    type: "Eau",
-    level: "Évolution 2",
-    stats: { hp: 79, attack: 83, defence: 100 },
-    image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/9.png",
-    description: "Un Pokémon avec deux canons à eau sur sa carapace."
+    name: "Brook",
+    type: "Paramecia",
+    level: "Musicien",
+    stats: { hp: 70, attack: 75, defence: 60 },
+    image: "https://raw.githubusercontent.com/optc-db/optc-db.github.io/master/api/images/full/transparent/0/400/0424.png",
+    description: "Le squelette musicien et bretteur ressuscité par le pouvoir du fruit de la Résurrection."
   },
   {
-    id: "#025",
-    name: "Pikachu",
-    type: "Électrik",
-    level: "Base",
-    stats: { hp: 35, attack: 55, defence: 40 },
-    image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png",
-    description: "Un Pokémon électrique qui produit des décharges."
+    id: "#010",
+    name: "Jinbe",
+    type: "Arts Martiaux",
+    level: "Barreur",
+    stats: { hp: 95, attack: 85, defence: 92 },
+    image: "https://raw.githubusercontent.com/optc-db/optc-db.github.io/master/api/images/full/transparent/0/400/0410.png",
+    description: "L'homme-poisson expert en karaté aquatique et ancien Grand Corsaire."
   },
   {
-    id: "#026",
-    name: "Raichu",
-    type: "Électrik",
-    level: "Évolution 1",
-    stats: { hp: 60, attack: 90, defence: 55 },
-    image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/26.png",
-    description: "Une évolution de Pikachu capable de produire une forte électricité."
+    id: "#011",
+    name: "Trafalgar Law",
+    type: "Paramecia",
+    level: "Capitaine",
+    stats: { hp: 92, attack: 90, defence: 88 },
+    image: "https://raw.githubusercontent.com/optc-db/optc-db.github.io/master/api/images/full/transparent/0/300/0308.png",
+    description: "Le Chirurgien de la Mort, capitaine des Heart Pirates, utilisateur du Ope Ope no Mi."
   },
   {
-    id: "#133",
-    name: "Évoli",
-    type: "Normal",
-    level: "Base",
-    stats: { hp: 55, attack: 55, defence: 50 },
-    image: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/133.png",
-    description: "Un Pokémon avec plusieurs possibilités d'évolution."
+    id: "#012",
+    name: "Eustass Kid",
+    type: "Paramecia",
+    level: "Capitaine",
+    stats: { hp: 94, attack: 93, defence: 89 },
+    image: "https://raw.githubusercontent.com/optc-db/optc-db.github.io/master/api/images/full/transparent/0/300/0357.png",
+    description: "Capitaine de l'équipage de Kid, doté d'un pouvoir magnétique redoutable."
+  },
+  {
+    id: "#013",
+    name: "Portgas D. Ace",
+    type: "Logia",
+    level: "Commandant",
+    stats: { hp: 85, attack: 92, defence: 80 },
+    image: "https://raw.githubusercontent.com/optc-db/optc-db.github.io/master/api/images/full/transparent/0/000/0075.png",
+    description: "Le frère de Luffy, commandant de la 2ème flotte de Barbe Blanche, utilisateur du Mera Mera no Mi."
+  },
+  {
+    id: "#014",
+    name: "Sabo",
+    type: "Logia",
+    level: "Révolutionnaire",
+    stats: { hp: 88, attack: 94, defence: 84 },
+    image: "https://raw.githubusercontent.com/optc-db/optc-db.github.io/master/api/images/full/transparent/0/600/0669.png",
+    description: "Chef d'état-major de l'Armée Révolutionnaire et frère adoptif de Luffy et Ace."
+  },
+  {
+    id: "#015",
+    name: "Kaido",
+    type: "Zoan Mythique",
+    level: "Empereur",
+    stats: { hp: 120, attack: 110, defence: 115 },
+    image: "https://raw.githubusercontent.com/optc-db/optc-db.github.io/master/api/images/full/transparent/2/700/2700.png",
+    description: "La créature la plus forte du monde, ancien Empereur des Mers."
+  },
+  {
+    id: "#016",
+    name: "Shanks",
+    type: "Haki",
+    level: "Empereur",
+    stats: { hp: 98, attack: 115, defence: 95 },
+    image: "https://raw.githubusercontent.com/optc-db/optc-db.github.io/master/api/images/full/transparent/0/000/0077.png",
+    description: "Le Roux, l'un des Empereurs les plus influents, maître absolu du Haki des rois."
   }
 ];
-
