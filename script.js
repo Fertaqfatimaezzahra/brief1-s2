@@ -19,7 +19,7 @@ function afficherCreatures(liste) {
   a.innerHTML = "";
 
   liste.forEach(cart => {
-    a.insertAdjacentHTML('beforeend', `<article
+    a.insertAdjacentHTML('beforeend', `<article data-id="${cart.id}"
     class=" dex-card flex flex-col gap-3 rounded-card bg-white p-3 pb-4 hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
     <div class=" character-zone relative flex h-36 items-center justify-center rounded-xl bg-brand-light">
       <img
@@ -31,7 +31,7 @@ function afficherCreatures(liste) {
         <h3 class="font-display text-xl font-semibold">${cart.name}</h3>
         <span class="rounded-full bg-brand-light px-3 py-1 text-sm font-bold text-ink">${cart.type}</span>
     </div>
-    <p class="text-sm text-muted">${cart.level} · Total ${cart.stats.power + cart.stats.defence + cart.stats.speed}</p>
+    <p class="text-sm text-muted">${cart.level} · Total ${cart.stats.hp + cart.stats.attack + cart.stats.defence}</p>
     <button
         type="button"
         class="btn-outline
@@ -74,6 +74,102 @@ recherche.addEventListener("input", () => {
 // Un clic sur une carte ouvre le panneau de détail :
 // image, description, et statistiques affichées en barres.
 // -------------------------------------------------------------
+
+
+const detail = document.getElementById("detail");
+detail.hidden = true;
+
+function afficherDetail(personnage) {
+  detail.hidden = false;
+
+  const statistiques = [
+    ["PV", personnage.stats.hp],
+    ["Attaque", personnage.stats.attack],
+    ["Diffense", personnage.stats.defence]
+  ];
+
+  detail.innerHTML = `
+    <div class="flex items-center justify-between">
+      <span class="font-mono text-sm text-muted">
+        ${personnage.id} · Detail
+      </span>
+      <button
+        type="button"
+        data-close
+        aria-label="Fermer le detail"
+        class="btn-outline"
+      >✕</button>
+    </div>
+
+    <div class="flex h-48 items-center justify-center rounded-2xl bg-brand-light">
+      <img
+        src="${personnage.image}"
+        alt="${personnage.name}"
+        class="h-full w-full object-contain"
+      >
+    </div>
+
+    <h2 class="font-display text-3xl font-extrabold">
+      ${personnage.name}
+    </h2>
+
+    <p class="font-bold">${personnage.type} · ${personnage.level}</p>
+    <p>${personnage.description}</p>
+
+    <div class="flex flex-col gap-3">
+      ${statistiques.map(([nom, valeur]) => `
+        <div>
+          <div class="flex justify-between text-sm">
+            <span>${nom}</span>
+            <span>${valeur}/999</span>
+          </div>
+          <div class="h-3 rounded-full bg-ground">
+            <div
+              class="h-3 rounded-full bg-brand"
+              style="width: ${valeur / 999 * 100}%"
+            ></div>
+          </div>
+        </div>
+      `).join("")}
+    </div>
+  <button
+      type="button"
+      class="btn-primary"
+      data-add="${personnage.id}"
+    >
+      Ajouter à l'équipe
+    </button>
+  `;
+}
+
+a.addEventListener("click", (event) => {
+  // Le bouton d'ajout sera gere dans l'etape equipe.
+  if (event.target.closest("button")) return;
+
+  const carte = event.target.closest("article[data-id]");
+  if (!carte) return;
+
+  const personnage = creatures.find(
+    personnage => personnage.id === carte.dataset.id
+  );
+
+  if (personnage) {
+    afficherDetail(personnage);
+  }
+});
+
+detail.addEventListener("click", (event) => {
+  if (event.target.closest("[data-close]")) {
+    detail.hidden = true;
+  }
+});
+
+
+
+
+
+
+
 
 
 // -------------------------------------------------------------

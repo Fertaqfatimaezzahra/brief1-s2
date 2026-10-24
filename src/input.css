@@ -53,3 +53,10 @@
 .dex-card:hover .character-img {
   transform: translateY(-4px) scale(1.05);
 }
+
+#detail[hidden] {
+  display: none;
+}
+#detail[hidden] {
+  display: none;
+}

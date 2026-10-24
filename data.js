@@ -24,7 +24,7 @@ export const creatures = [
     name: "Monkey D. Luffy",
     type: "Paramecia",
     level: "Capitaine",
-    stats: { hp: 100, attack: 95, defence: 90 },
+    stats: { hp: 950, attack: 920, defence: 880 },
     image: "https://raw.githubusercontent.com/optc-db/optc-db.github.io/master/api/images/full/transparent/0/000/0004.png",
     description: "Capitaine de l'équipage du Chapeau de Paille, il rêve de devenir le Roi des Pirates."
   },
@@ -33,7 +33,7 @@ export const creatures = [
     name: "Roronoa Zoro",
     type: "Sabreur",
     level: "Combattant",
-    stats: { hp: 90, attack: 98, defence: 85 },
+    stats: { hp: 900, attack: 980, defence: 850 },
     image: "https://raw.githubusercontent.com/optc-db/optc-db.github.io/master/api/images/full/transparent/0/000/0008.png",
     description: "Le maître du style à trois sabres qui vise à devenir le plus grand épéiste du monde."
   },
@@ -42,7 +42,7 @@ export const creatures = [
     name: "Vinsmoke Sanji",
     type: "Combattant",
     level: "Cuisinier",
-    stats: { hp: 88, attack: 90, defence: 88 },
+    stats: { hp: 880, attack: 900, defence: 880 },
     image: "https://raw.githubusercontent.com/optc-db/optc-db.github.io/master/api/images/full/transparent/0/000/0020.png",
     description: "Le cuisinier hors pair de l'équipage qui combat exclusivement avec ses jambes."
   },
@@ -51,7 +51,7 @@ export const creatures = [
     name: "Nami",
     type: "Navigateur",
     level: "Navigateur",
-    stats: { hp: 60, attack: 65, defence: 55 },
+    stats: { hp: 600, attack: 650, defence: 550 },
     image: "https://raw.githubusercontent.com/optc-db/optc-db.github.io/master/api/images/full/transparent/0/000/0012.png",
     description: "La navigatrice géniale capable de prédire les pires tempêtes sur Grand Line."
   },
@@ -60,7 +60,7 @@ export const creatures = [
     name: "Usopp",
     type: "Tireur",
     level: "Sniper",
-    stats: { hp: 65, attack: 70, defence: 50 },
+    stats: { hp: 650, attack: 700, defence: 500 },
     image: "https://raw.githubusercontent.com/optc-db/optc-db.github.io/master/api/images/full/transparent/0/000/0015.png",
     description: "Le sniper courageux (à sa façon) et menteur professionnel de l'équipe."
   },
@@ -69,7 +69,7 @@ export const creatures = [
     name: "Tony-Tony Chopper",
     type: "Zoan",
     level: "Médecin",
-    stats: { hp: 70, attack: 60, defence: 75 },
+    stats: { hp: 700, attack: 600, defence: 750 },
     image: "https://raw.githubusercontent.com/optc-db/optc-db.github.io/master/api/images/full/transparent/0/000/0021.png",
     description: "Le médecin de bord renne qui a mangé le fruit de l'Humain et utilise des Rumble Balls."
   },
@@ -78,7 +78,7 @@ export const creatures = [
     name: "Nico Robin",
     type: "Paramecia",
     level: "Archéologue",
-    stats: { hp: 75, attack: 72, defence: 68 },
+    stats: { hp: 750, attack: 720, defence: 680 },
     image: "https://raw.githubusercontent.com/optc-db/optc-db.github.io/master/api/images/full/transparent/0/200/0210.png",
     description: "L'archéologue qui cherche à découvrir la vraie histoire du Siècle Oublié."
   },
@@ -87,7 +87,7 @@ export const creatures = [
     name: "Franky",
     type: "Cyborg",
     level: "Charpentier",
-    stats: { hp: 85, attack: 80, defence: 85 },
+    stats: { hp: 850, attack: 800, defence: 850 },
     image: "https://raw.githubusercontent.com/optc-db/optc-db.github.io/master/api/images/full/transparent/0/300/0337.png",
     description: "Le cyborg charpentier super-stylé qui a construit le Thousand Sunny."
   },
@@ -96,7 +96,7 @@ export const creatures = [
     name: "Brook",
     type: "Paramecia",
     level: "Musicien",
-    stats: { hp: 70, attack: 75, defence: 60 },
+    stats: { hp: 700, attack: 750, defence: 600 },
     image: "https://raw.githubusercontent.com/optc-db/optc-db.github.io/master/api/images/full/transparent/0/400/0424.png",
     description: "Le squelette musicien et bretteur ressuscité par le pouvoir du fruit de la Résurrection."
   },
@@ -105,7 +105,7 @@ export const creatures = [
     name: "Jinbe",
     type: "Arts Martiaux",
     level: "Barreur",
-    stats: { hp: 95, attack: 85, defence: 92 },
+    stats: { hp: 950, attack: 850, defence: 920 },
     image: "https://raw.githubusercontent.com/optc-db/optc-db.github.io/master/api/images/full/transparent/0/400/0410.png",
     description: "L'homme-poisson expert en karaté aquatique et ancien Grand Corsaire."
   },
@@ -114,7 +114,7 @@ export const creatures = [
     name: "Trafalgar Law",
     type: "Paramecia",
     level: "Capitaine",
-    stats: { hp: 92, attack: 90, defence: 88 },
+    stats: { hp: 920, attack: 900, defence: 880 },
     image: "https://raw.githubusercontent.com/optc-db/optc-db.github.io/master/api/images/full/transparent/0/300/0308.png",
     description: "Le Chirurgien de la Mort, capitaine des Heart Pirates, utilisateur du Ope Ope no Mi."
   },
@@ -123,7 +123,7 @@ export const creatures = [
     name: "Eustass Kid",
     type: "Paramecia",
     level: "Capitaine",
-    stats: { hp: 94, attack: 93, defence: 89 },
+    stats: { hp: 940, attack: 930, defence: 890 },
     image: "https://raw.githubusercontent.com/optc-db/optc-db.github.io/master/api/images/full/transparent/0/300/0357.png",
     description: "Capitaine de l'équipage de Kid, doté d'un pouvoir magnétique redoutable."
   },
@@ -132,7 +132,7 @@ export const creatures = [
     name: "Portgas D. Ace",
     type: "Logia",
     level: "Commandant",
-    stats: { hp: 85, attack: 92, defence: 80 },
+    stats: { hp: 850, attack: 920, defence: 800 },
     image: "https://raw.githubusercontent.com/optc-db/optc-db.github.io/master/api/images/full/transparent/0/000/0075.png",
     description: "Le frère de Luffy, commandant de la 2ème flotte de Barbe Blanche, utilisateur du Mera Mera no Mi."
   },
@@ -141,7 +141,7 @@ export const creatures = [
     name: "Sabo",
     type: "Logia",
     level: "Révolutionnaire",
-    stats: { hp: 88, attack: 94, defence: 84 },
+    stats: { hp: 880, attack: 940, defence: 840 },
     image: "https://raw.githubusercontent.com/optc-db/optc-db.github.io/master/api/images/full/transparent/0/600/0669.png",
     description: "Chef d'état-major de l'Armée Révolutionnaire et frère adoptif de Luffy et Ace."
   },
@@ -150,7 +150,7 @@ export const creatures = [
     name: "Kaido",
     type: "Zoan Mythique",
     level: "Empereur",
-    stats: { hp: 120, attack: 110, defence: 115 },
+    stats: { hp: 999, attack: 990, defence: 995 },
     image: "https://raw.githubusercontent.com/optc-db/optc-db.github.io/master/api/images/full/transparent/2/700/2700.png",
     description: "La créature la plus forte du monde, ancien Empereur des Mers."
   },
@@ -159,7 +159,7 @@ export const creatures = [
     name: "Shanks",
     type: "Haki",
     level: "Empereur",
-    stats: { hp: 98, attack: 115, defence: 95 },
+    stats: { hp: 980, attack: 999, defence: 950 },
     image: "https://raw.githubusercontent.com/optc-db/optc-db.github.io/master/api/images/full/transparent/0/000/0077.png",
     description: "Le Roux, l'un des Empereurs les plus influents, maître absolu du Haki des rois."
   }
