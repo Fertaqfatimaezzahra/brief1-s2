@@ -34,6 +34,7 @@ function afficherCreatures(liste) {
     <p class="text-sm text-muted">${cart.level} · Total ${cart.stats.hp + cart.stats.attack + cart.stats.defence}</p>
     <button
         type="button"
+  data-add="${cart.id}"
         class="btn-outline
         mt-auto
   focus-visible:outline-none
@@ -49,9 +50,11 @@ function afficherCreatures(liste) {
 </article>`)
 
 });
+actualiserBoutonsEquipe();
 }
 
-afficherCreatures(creatures);
+
+
 
 
 // -------------------------------------------------------------
@@ -189,11 +192,18 @@ function afficherDetail(personnage) {
       Ajouter à l'équipe
     </button>
   `;
+  actualiserBoutonsEquipe();
 }
+
 
 a.addEventListener("click", (event) => {
   // Le bouton d'ajout sera gere dans l'etape equipe.
-  if (event.target.closest("button")) return;
+ const bouton = event.target.closest("[data-add]");
+
+if (bouton) {
+  ajouterEquipe(bouton.dataset.add);
+  return;
+}
 
   const carte = event.target.closest("article[data-id]");
   if (!carte) return;
@@ -207,9 +217,15 @@ a.addEventListener("click", (event) => {
   }
 });
 
-detail.addEventListener("click", (event) => {
+detail.addEventListener("click", event => {
   if (event.target.closest("[data-close]")) {
     detail.hidden = true;
+  }
+
+  const bouton = event.target.closest("[data-add]");
+
+  if (bouton) {
+    ajouterEquipe(bouton.dataset.add);
   }
 });
 
@@ -237,13 +253,195 @@ detail.addEventListener("click", (event) => {
 // champ, et n'ajoutez jamais une créature invalide.
 // -------------------------------------------------------------
 
+const formulaire = document.getElementById("creature-form");
 
+const regles = {
+  id: /^#\d{3}$/,
+  name: /^[A-Za-zÀ-ÿ0-9][A-Za-zÀ-ÿ0-9 .'-]{1,29}$/,
+  level: /^[\s\S]{2,30}$/,
+  stat1: /^\d{1,3}$/,
+  stat2: /^\d{1,3}$/,
+  stat3: /^\d{1,3}$/,
+  image: /^https:\/\/\S+\.(png|jpe?g|webp|gif)$/i,
+  description: /^[\s\S]{10,200}$/
+};
+
+const messages = {
+  id: "Format attendu : #017, avec un numero unique.",
+  name: "2 a 30 caracteres : lettres, chiffres, espaces, point, apostrophe ou tiret.",
+  type: "Choisissez un type.",
+  level: "Indiquez un niveau de 2 a 30 caracteres.",
+  stat1: "Entrez un entier entre 0 et 999.",
+  stat2: "Entrez un entier entre 0 et 999.",
+  stat3: "Entrez un entier entre 0 et 999.",
+  image: "Lien https terminant par .png, .jpg, .jpeg, .webp ou .gif.",
+  description: "La description doit contenir 10 a 200 caracteres."
+};
+
+const champs = Array.from(
+  formulaire.querySelectorAll("input, select, textarea")
+);
+
+function validerChamp(champ) {
+  const valeur = champ.value.trim();
+  let valide;
+
+  if (champ.name === "type") {
+    valide = types.includes(valeur) && valeur !== "Tous";
+  } else {
+    valide = regles[champ.name].test(valeur);
+  }
+
+  if (champ.name === "id" && valide) {
+    valide = !creatures.some(personnage => personnage.id === valeur);
+  }
+
+  champ.setAttribute("aria-invalid", String(!valide));
+
+  const erreur = champ.parentElement.querySelector(".error-message");
+  erreur.textContent = valide ? "" : messages[champ.name];
+
+  return valide;
+}
+
+champs.forEach(champ => {
+  champ.addEventListener("blur", () => {
+    validerChamp(champ);
+  });
+});
+
+formulaire.addEventListener("submit", event => {
+  event.preventDefault();
+
+  // On verifie tous les champs pour afficher toutes les erreurs.
+  const resultats = champs.map(champ => validerChamp(champ));
+  if (!resultats.every(Boolean)) return;
+
+  const valeurs = new FormData(formulaire);
+
+  const personnage = {
+    id: valeurs.get("id").trim(),
+    name: valeurs.get("name").trim(),
+    type: valeurs.get("type"),
+    level: valeurs.get("level").trim(),
+    stats: {
+      hp: Number(valeurs.get("stat1")),
+      attack: Number(valeurs.get("stat2")),
+      defence: Number(valeurs.get("stat3"))
+    },
+    image: valeurs.get("image").trim(),
+    description: valeurs.get("description").trim()
+  };
+
+  creatures.push(personnage);
+
+  // Afficher le nouveau personnage sans ancien filtre.
+  recherche.value = "";
+  typeActif = "Tous";
+  afficherFiltres();
+  appliquerFiltres();
+
+  document.getElementById("creature-count").textContent =
+    creatures.length;
+
+  formulaire.reset();
+  afficherDetail(personnage);
+  detail.scrollIntoView({ behavior: "smooth", block: "start" });
+});
+
+formulaire.addEventListener("reset", () => {
+  champs.forEach(champ => {
+    champ.removeAttribute("aria-invalid");
+    champ.parentElement.querySelector(".error-message").textContent = "";
+  });
+});
 // -------------------------------------------------------------
 // 6. MON ÉQUIPE
 // Boutons « Ajouter à l'équipe » et « Retirer », gérés avec UN SEUL
 // écouteur sur la grille et UN SEUL sur l'équipe (délégation).
 // -------------------------------------------------------------
+let equipe = [];
 
+const listeEquipe = document.getElementById("team-list");
+const messageEquipe = document.getElementById("team-message");
+
+function actualiserBoutonsEquipe() {
+  document.querySelectorAll("[data-add]").forEach(bouton => {
+    bouton.disabled = equipe.length >= 6;
+  });
+}
+
+function afficherEquipe() {
+  listeEquipe.innerHTML = equipe.map(personnage => `
+    <div class="flex flex-col items-center gap-2 rounded-xl border-2 border-line p-2">
+      <img
+        src="${personnage.image}"
+        alt="${personnage.name}"
+        class="h-20 w-full object-contain"
+      >
+      <p class="text-center text-sm font-bold">
+        ${personnage.name}
+      </p>
+      <button
+        type="button"
+        data-remove="${personnage.id}"
+        class="btn-outline mt-auto"
+      >
+        Retirer
+      </button>
+    </div>
+  `).join("");
+
+  for (let i = equipe.length; i < 6; i++) {
+    listeEquipe.insertAdjacentHTML("beforeend", `
+      <div class="flex h-24 items-center justify-center rounded-xl border-2 border-dashed border-line">
+        +
+      </div>
+    `);
+  }
+
+  document.getElementById("team-count").textContent = equipe.length;
+  document.getElementById("team-count-display").textContent = equipe.length;
+
+  actualiserBoutonsEquipe();
+}
+
+function ajouterEquipe(id) {
+  if (equipe.some(personnage => personnage.id === id)) {
+    messageEquipe.textContent = "Ce personnage est deja dans l'equipe.";
+    return;
+  }
+
+  if (equipe.length >= 6) {
+    messageEquipe.textContent = "Equipe complete : maximum 6 personnages.";
+    return;
+  }
+
+  const personnage = creatures.find(personnage => personnage.id === id);
+  if (!personnage) return;
+
+  equipe.push(personnage);
+  afficherEquipe();
+
+  messageEquipe.textContent = equipe.length === 6
+    ? "Equipe complete : 6/6. Retirez un personnage pour en ajouter un autre."
+    : `${personnage.name} a rejoint l'equipe.`;
+}
+
+listeEquipe.addEventListener("click", event => {
+  const bouton = event.target.closest("[data-remove]");
+  if (!bouton) return;
+
+  equipe = equipe.filter(
+    personnage => personnage.id !== bouton.dataset.remove
+  );
+
+  afficherEquipe();
+  messageEquipe.textContent = "Personnage retire de l'equipe.";
+});
+
+afficherEquipe();
+afficherCreatures(creatures);
 
 // -------------------------------------------------------------
 // 7. RÈGLES DE L'ÉQUIPE

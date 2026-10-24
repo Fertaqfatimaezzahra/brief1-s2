@@ -73,3 +73,33 @@
   outline: 3px solid #B45309;
   outline-offset: 3px;
 }
+
+#creature-form [aria-invalid="true"] {
+  border-color: #DC2626;
+}
+
+#creature-form [aria-invalid="false"] {
+  border-color: #15803D;
+}
+
+#creature-form .error-message {
+  color: #DC2626;
+}
+
+#creature-form :is(input, select, textarea):focus-visible {
+  outline: 3px solid #B45309;
+  outline-offset: 2px;
+}
+body {
+  min-height: 100vh;
+  background-image:
+    linear-gradient(
+      rgba(250, 243, 229, 0.35),
+      rgba(250, 243, 229, 0.35)
+    ),
+    url("../images/background.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
