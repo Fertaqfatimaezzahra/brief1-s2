@@ -1,8 +1,6 @@
-# Mon Dex — dépôt de départ
+## 🏴‍☠️ Grand Line Dex — One Piece
 
-Sprint 2 — Brief 1. Une page Tailwind **statique** à rendre interactive avec JavaScript, pour l'univers de votre choix : Pokémon, Digimon ou Yu-Gi-Oh!.
-
-Lisez le brief complet avant de commencer.
+Grand Line Dex est une application web interactive inspirée de l'univers One Piece, réalisée avec HTML, Tailwind CSS et JavaScript (ES Modules). Elle permet d'explorer des personnages, de consulter leurs caractéristiques, d'ajouter des personnages personnalisés et de constituer une équipe.
 
 ## Installation
 
@@ -37,8 +35,30 @@ Puis committez `dist/output.css` : GitHub Pages ne lance pas Tailwind pour vous.
 
 ## À compléter par vous
 
-- **Univers choisi :** [Pokémon / Digimon / Yu-Gi-Oh!]
-- **Lien GitHub Pages :** [(https://github.com/PokeAPI/sprites)]
-- **Sources des images :** [(https://github.com/PokeAPI/sprites)]
-- **Tests des expressions régulières :** [collez ici vos tests console : 2 valeurs valides et 2 invalides par expression]
+- **Univers choisi :** [ONE PIECE]
+- **Lien GitHub Pages :** [https://github.com/Fertaqfatimaezzahra/brief1-s2.git]
+- **Sources des images :** [https://github.com/optc-db/optc-db.github.io]
+- **Tests des expressions régulières :** [ID — /^#\d{3}$/
+
+Valides : #001, #017
+
+Invalides : 001, #1234
+
+Nom — /^[A-Za-zÀ-ÿ0-9][A-Za-zÀ-ÿ0-9 .'-]{1,29}$/
+
+Valides : Monkey D. Luffy, Roronoa Zoro
+
+Invalides : A, @Luffy
+
+Niveau — /^[\s\S]{2,30}$/
+
+Valides : Capitaine, Empereur
+
+Invalides : A, une chaîne de 31 caractères
+
+Statistiques (PV, Attaque, Défense) — /^\d{1,3}$/
+
+Valides : 950, 99
+
+Invalides : 1000, -50]
 - **Bonus réalisés :** [liste]
