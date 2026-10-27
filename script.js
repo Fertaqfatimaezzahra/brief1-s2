@@ -1,6 +1,5 @@
 // =============================================================
 // script.js — Mon Dex
-// =============================================================
 // Les données viennent de data.js (la constante `creatures`).
 // Écrivez votre code ici, fonctionnalité par fonctionnalité.
 // Une carte GitHub Projects et au moins un commit par fonctionnalité.
@@ -13,13 +12,13 @@
 
 import { creatures } from './data.js'
 console.log(creatures)
-let a = document.getElementById("grid")
-console.log(a)
+let get_grid = document.getElementById("grid")
+
 function afficherCreatures(liste) {
-  a.innerHTML = "";
+  get_grid.innerHTML = "";
 
   liste.forEach(cart => {
-    a.insertAdjacentHTML('beforeend', `<article data-id="${cart.id}"
+     get_grid.insertAdjacentHTML('beforeend', `<article data-id="${cart.id}"
     class=" dex-card flex flex-col gap-3 rounded-card bg-white p-3 pb-4 hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
     <div class=" character-zone relative flex h-36 items-center justify-center rounded-xl bg-brand-light">
       <img
@@ -196,8 +195,8 @@ function afficherDetail(personnage) {
 }
 
 
-a.addEventListener("click", (event) => {
-  // Le bouton d'ajout sera gere dans l'etape equipe.
+ get_grid.addEventListener("click", (event) => {
+ 
  const bouton = event.target.closest("[data-add]");
 
 if (bouton) {
@@ -252,6 +251,9 @@ detail.addEventListener("click", event => {
 // (voir le tableau du brief). Affichez le message d'erreur sous le
 // champ, et n'ajoutez jamais une créature invalide.
 // -------------------------------------------------------------
+
+
+
 
 const formulaire = document.getElementById("creature-form");
 
@@ -313,7 +315,6 @@ champs.forEach(champ => {
 formulaire.addEventListener("submit", event => {
   event.preventDefault();
 
-  // On verifie tous les champs pour afficher toutes les erreurs.
   const resultats = champs.map(champ => validerChamp(champ));
   if (!resultats.every(Boolean)) return;
 
@@ -335,7 +336,6 @@ formulaire.addEventListener("submit", event => {
 
   creatures.push(personnage);
 
-  // Afficher le nouveau personnage sans ancien filtre.
   recherche.value = "";
   typeActif = "Tous";
   afficherFiltres();
@@ -355,6 +355,7 @@ formulaire.addEventListener("reset", () => {
     champ.parentElement.querySelector(".error-message").textContent = "";
   });
 });
+
 // -------------------------------------------------------------
 // 6. MON ÉQUIPE
 // Boutons « Ajouter à l'équipe » et « Retirer », gérés avec UN SEUL
